@@ -81,7 +81,13 @@ foreach ($fields as $title => $html) {
         if ($title == 'mbr_new_form_Password') {
             echo $loc->getText("PwdRequirement");
         }
-        echo $html; 
+        echo $html;
+        if ($title == 'mbrFldsCardNmbr' && isset($recentBarcodes) && !empty($recentBarcodes)) {
+            echo '<br><span class="notice" style="font-size: 0.9em;">';
+            echo $loc->getText("mbrFldsRecentBarcodes") . ' ';
+            echo H(implode(', ', $recentBarcodes));
+            echo '</span>';
+        }
         if ($title == 'mbr_new_form_TypeOfPwdCreation') {
             echo $loc->getText("mbr_new_form_TypeOfPwdCreationInfo") . "</span>";
             ?>

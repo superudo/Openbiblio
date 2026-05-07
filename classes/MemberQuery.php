@@ -201,6 +201,29 @@ class MemberQuery extends Query
     }
 
     /****************************************************************************
+     * Returns the most recently created member barcode numbers
+     * @param int $limit Number of recent barcodes to retrieve (default: 5)
+     * @return array Array of barcode numbers in reverse chronological order
+     * @access public
+     ****************************************************************************
+     */
+    function getRecentBarcodes($limit = 5)
+    {
+        $sql = $this->mkSQL(
+            "select barcode_nmbr from member "
+            . "order by mbrid desc "
+            . "limit %N",
+            $limit
+        );
+        $rows = $this->exec($sql);
+        $barcodes = array();
+        foreach ($rows as $row) {
+            $barcodes[] = $row['barcode_nmbr'];
+        }
+        return $barcodes;
+    }
+
+    /****************************************************************************
      * Returns true if barcode number already exists
      * @param string $barcode Library member barcode number
      * @param string $mbrid Library member id

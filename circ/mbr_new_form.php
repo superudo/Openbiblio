@@ -18,10 +18,16 @@
   require_once("../shared/get_form_vars.php");
   require_once("../shared/header.php");
   require_once("../classes/Member.php");
+  require_once("../classes/MemberQuery.php");
   require_once("../classes/Localize.php");
   $loc = new Localize(OBIB_LOCALE,$tab);
   $headerWording = $loc->getText("mbrNewForm");
   $mbr = new Member();
+  
+  $mbrQ = new MemberQuery();
+  $mbrQ->connect_e();
+  $recentBarcodes = $mbrQ->getRecentBarcodes(5);
+  $mbrQ->close();
 ?>
 <form name="newmbrform" method="POST" action="../circ/mbr_new.php">
 <?php 
