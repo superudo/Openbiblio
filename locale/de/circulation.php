@@ -63,7 +63,7 @@ $trans["mbrNewForm"] = "\$text='Füge hinzu neuen ';";
 $trans["mbrEditForm"] = "\$text='Bearbeite ';";
 $trans["mbrFldsHeader"] = "\$text='Benutzer:';";
 $trans["mbrFldsCardNmbr"] = "\$text='Benutzernummer:';";
-$trans["mbrFldsRecentBarcodes"] = "\$text='Zuletzt:'";
+$trans["mbrFldsRecentBarcodes"] = "\$text='Zuletzt:';";
 $trans["mbrFldsLastName"] = "\$text='Nachname:';";
 $trans["mbrFldsFirstName"] = "\$text='Vorname:';";
 $trans["mbrFldsAddr1"] = "\$text='Adresszeile 1:';";
