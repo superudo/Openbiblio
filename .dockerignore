@@ -1,0 +1,19 @@
+# Git repository (large and not needed)
+.git
+
+# IDE folders (can be large)
+.idea/
+.vscode/
+.claude/
+
+# macOS metadata
+.DS_Store
+
+# Temporary files
+*.log
+*.tmp
+.cache/
+
+# Note: The Dockerfile uses a whitelist approach to copy only required files.
+# This .dockerignore only excludes large/unnecessary items from the build context
+# to speed up builds and reduce context size.

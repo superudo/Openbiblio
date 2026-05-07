@@ -16,7 +16,9 @@ services:
       retries: 10
 
   app:
-    build: .
+    build:
+      context: .
+      target: development
     volumes:
       - .:/var/www/html
     environment:
