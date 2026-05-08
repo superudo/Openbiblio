@@ -82,8 +82,8 @@ $tableRows = '';
 foreach ($rows as $row) {
     $tableRows .= '<tr>';
     foreach ($row as $label) {
-        $textStyle = 'font-family: ' . $label['font'] . '; direction: ' . $label['dir'] . '; color: #000;';
-        $barcode   = base64_encode($barcodeGenerator->getBarcode($label['barcode'], $barcodeGenerator::TYPE_CODE_128));
+        $textStyle = 'font-family: ' . $label['font'] . '; direction: ' . $label['dir'] . '; color: #000 !important;';
+        $barcode   = base64_encode($barcodeGenerator->getBarcode($label['barcode'], $barcodeGenerator::TYPE_CODE_128, 1, 40));
         $tableRows .= '
         <td style="width:60mm; height:50mm; border:0.5pt solid #aaa; padding:3mm; vertical-align:top;">
             <p style="font-size:7pt; color:#888; margin:0 0 1mm 0;">' . htmlspecialchars($label['script']) . '</p>
@@ -91,8 +91,10 @@ foreach ($rows as $row) {
                 . htmlspecialchars($label['title']) . '</p>
             <p lang="' . $label['lang'] . '" style="font-size:8pt; margin:0 0 3mm 0; ' . $textStyle . '">'
                 . htmlspecialchars($label['author']) . '</p>
-            <img style="width:50mm; height:12mm; display:block; margin:0 auto;" src="data:image/svg+xml;base64,' . $barcode . '" />
-            <p style="font-size:7pt; text-align:center; margin:1mm 0 0 0; color:#000;">' . htmlspecialchars($label['barcode']) . '</p>
+            <div style="text-align:center;">
+                <img style="width:35mm; height:8mm;" src="data:image/svg+xml;base64,' . $barcode . '" />
+                <p style="font-size:7pt; margin:1mm 0 0 0; color:#000;">' . htmlspecialchars($label['barcode']) . '</p>
+            </div>
         </td>';
     }
     $tableRows .= '</tr>';
