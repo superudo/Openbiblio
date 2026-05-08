@@ -5,17 +5,24 @@
 
 /**
  * Test script for migration system
- * Run this from command line: php install/test_migrations.php
+ * Run this from command line: 
+ *   docker-compose exec app php /var/www/html/install/test_migrations.php
+ * Or from project root:
+ *   php install/test_migrations.php
  */
 
+// Set up paths based on where script is run from
+$scriptDir = dirname(__FILE__);
+$rootDir = dirname($scriptDir);
+
 $doing_install = true;
-require_once("../shared/common.php");
-require_once("../classes/MigrationRunner.php");
+require_once($rootDir . "/shared/common.php");
+require_once($rootDir . "/classes/MigrationRunner.php");
 
 echo "=== Migration System Test ===\n\n";
 
 // Create migration runner
-$runner = new MigrationRunner('../migrations');
+$runner = new MigrationRunner($rootDir . '/migrations');
 
 // Test 1: Check if schema_migrations table exists
 echo "Test 1: Checking for schema_migrations table...\n";

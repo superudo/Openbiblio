@@ -3,7 +3,7 @@
  * See the file COPYRIGHT.html for more details.
  */
 
-require_once("../classes/InstallQuery.php");
+require_once(dirname(__FILE__) . "/InstallQuery.php");
 
 /**
  * Base class for database migrations.
@@ -42,7 +42,7 @@ abstract class Migration extends InstallQuery {
      * @param string $sql SQL statement to execute
      * @return mixed Result of the query
      */
-    protected function exec($sql) {
+    public function exec($sql) {
         return parent::exec($sql);
     }
     
@@ -51,7 +51,7 @@ abstract class Migration extends InstallQuery {
      * @param string $filepath Path to SQL file
      * @param string $tablePrfx Table prefix to use
      */
-    protected function executeSqlFile($filepath, $tablePrfx = DB_TABLENAME_PREFIX) {
+    public function executeSqlFile($filepath, $tablePrfx = DB_TABLENAME_PREFIX) {
         return parent::executeSqlFile($filepath, $tablePrfx);
     }
 }

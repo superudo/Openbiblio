@@ -3,7 +3,7 @@
  * See the file COPYRIGHT.html for more details.
  */
 
-require_once("../classes/Migration.php");
+require_once(dirname(__FILE__) . "/../classes/Migration.php");
 
 /**
  * Migration 015: Add database indexes for performance

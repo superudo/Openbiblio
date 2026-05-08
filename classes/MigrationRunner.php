@@ -3,8 +3,8 @@
  * See the file COPYRIGHT.html for more details.
  */
 
-require_once("../classes/InstallQuery.php");
-require_once("../classes/Migration.php");
+require_once(dirname(__FILE__) . "/InstallQuery.php");
+require_once(dirname(__FILE__) . "/Migration.php");
 
 /**
  * Manages database migrations
@@ -39,7 +39,7 @@ class MigrationRunner extends InstallQuery {
     public function schemaMigrationsTableExists() {
         $sql = $this->mkSQL('SHOW TABLES LIKE %Q', $this->tablePrfx . 'schema_migrations');
         $row = $this->select01($sql);
-        return $row !== false;
+        return $row !== NULL;
     }
     
     /**
