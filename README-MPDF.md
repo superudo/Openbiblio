@@ -47,7 +47,7 @@ No OS-level packages, binaries (GhostScript, wkhtmltopdf etc.) or shell access r
 The project already bundles its dependencies in `vendor/` (committed to git), so no
 Composer access is needed on the production server. The build workflow is:
 
-1. On a local machine with PHP and Docker available, update dependencies:
+1. On a local machine with Docker available, update dependencies:
    ```bash
    docker run --rm -v $(pwd):/app composer update --ignore-platform-reqs
    ```
